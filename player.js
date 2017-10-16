@@ -1,22 +1,32 @@
+// This is an example object for javascript.
+
 function Player(name){
+    // Properties
     this.name = name;
     this.hp = 100;
     this.mp = 90;
 
-    this.giveLife = function(targetPlayer){
+    // Method heal
+    this.heal = function(targetPlayer){
         targetPlayer.hp += 20;
+        this.mp -= 10;
         console.log(targetPlayer.name + " is now " + targetPlayer.hp)
 
+    };
+
+    // Method Attack
+    this.attack = function(targetPlayer){
+        targetPlayer.hp -= 35;
+        console.log(this.name + " attack " + targetPlayer.name + " dealing 35 damage");
+    };
+
+    // Method magicAttack
+    this.magicAttack = function(targetPlayer){
+        targetPlayer.hp -= 50;
+        this.mp -= 15;
+        console.log(this.name + " used magic to deal 50 damage to " + targetPlayer.name);
     }
 
 }
-
-
-Player.prototype.attackMagic = function(targetPlayer){
-    targetPlayer.hp -= 35;
-    this.mp -= 20;
-    console.log(this.name + " use firebolt damaging " + targetPlayer.name)
-};
-
 
 module.exports = Player;
