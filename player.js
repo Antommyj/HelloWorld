@@ -1,6 +1,7 @@
 // This is an example object for javascript.
 
-function Player(name){
+// This one needs to be in an anonymous function in order for it to be exportable
+var player = function(name){
     // Properties
     this.name = name;
     this.hp = 100;
@@ -27,6 +28,7 @@ function Player(name){
         console.log(this.name + " used magic to deal 50 damage to " + targetPlayer.name);
     }
 
-}
+};
 
-module.exports = Player;
+module.exports = player;
+
